@@ -7,6 +7,7 @@ A professional website for Ansaab International, a supplier of UNHCR Family Tent
 - Modern, responsive design
 - Optimized for performance and SEO
 - Comprehensive product information
+- Downloadable product brochures
 - Project showcase
 - Contact form
 - Supplier information
@@ -44,9 +45,11 @@ npm run dev
 - `/src/app/*` - Next.js app router pages
 - `/src/components/*` - Reusable React components
 - `/public/images/*` - Static images and assets
+- `/public/brochures/*` - Product brochures and technical specifications
 
-## Image Requirements
+## Required Assets
 
+### Images
 The following placeholder images need to be replaced with actual high-quality images:
 
 - `public/images/hero-tent.jpg` - Hero image of UNHCR Family Tent
@@ -55,6 +58,13 @@ The following placeholder images need to be replaced with actual high-quality im
 - `public/images/yemen-project.jpg` - Yemen project image
 - `public/images/sudan-project.jpg` - Sudan project image
 - `public/images/syria-project.jpg` - Syria project image
+
+### Brochures
+The following PDF files need to be added:
+
+- `public/brochures/UNHCR-Family-Tent-Brochure-EN.pdf` - Full product brochure (English)
+- `public/brochures/UNHCR-Family-Tent-Specs-EN.pdf` - Technical specifications (English)
+- Additional language versions (French, Arabic, Spanish) should follow the same naming convention
 
 ## Development
 

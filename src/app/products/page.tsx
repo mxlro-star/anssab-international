@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ArrowDownTrayIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 
 const specifications = [
   { name: 'Dimensions', value: '4.0 x 6.4 meters (outer tent)' },
@@ -25,6 +26,48 @@ const features = [
   'Reinforced attachment points',
   'Multiple ventilation options',
 ];
+
+const brochureContent = {
+  title: 'UNHCR Family Tent Specifications',
+  sections: [
+    {
+      title: 'General Description',
+      content: [
+        'All-purpose family tent designed to meet UNHCR standards',
+        'Suitable for hot and cold climates',
+        'Double-fly with ground sheet for enhanced protection',
+        'Complete with all accessories and ready to use',
+      ],
+    },
+    {
+      title: 'Materials & Construction',
+      content: [
+        'Outer tent: Cotton/Polyester blend, waterproof and rot-proof',
+        'Inner tent: Breathable fabric with privacy features',
+        'Ground sheet: PE fabric, sewn-in design',
+        'Poles: Aluminum or galvanized steel, rust-resistant',
+      ],
+    },
+    {
+      title: 'Safety Features',
+      content: [
+        'Fire retardant materials meeting international standards',
+        'UV protection treatment',
+        'Reinforced stress points',
+        'Storm-proof design with guy ropes',
+      ],
+    },
+    {
+      title: 'Additional Features',
+      content: [
+        'Multiple ventilation options',
+        'Mosquito nets on all openings',
+        'Repair kit included',
+        'Setup instructions in multiple languages',
+      ],
+    },
+  ],
+};
 
 export default function Products() {
   return (
@@ -126,6 +169,100 @@ export default function Products() {
               ))}
             </ul>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Brochure Section */}
+      <div className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-12">
+              Product Brochure
+            </h2>
+          </motion.div>
+
+          {/* Brochure Preview */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left side - Brochure content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 p-8"
+            >
+              <div className="space-y-8">
+                {brochureContent.sections.map((section) => (
+                  <div key={section.title}>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                      {section.title}
+                    </h3>
+                    <ul className="space-y-3">
+                      {section.content.map((item) => (
+                        <li key={item} className="flex items-start">
+                          <span className="flex-shrink-0 h-1.5 w-1.5 mt-2 rounded-full bg-blue-600 mr-3"></span>
+                          <span className="text-gray-600">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right side - Download options */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <div className="bg-blue-50 rounded-xl p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  Download Product Information
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Get detailed specifications, technical drawings, and certification information in our comprehensive product brochure.
+                </p>
+                <div className="space-y-4">
+                  <a
+                    href="/brochures/UNHCR-Family-Tent-Brochure-EN.pdf"
+                    className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-500 transition-colors"
+                  >
+                    <DocumentTextIcon className="h-5 w-5" />
+                    Download Full Brochure (PDF)
+                  </a>
+                  <a
+                    href="/brochures/UNHCR-Family-Tent-Specs-EN.pdf"
+                    className="flex items-center justify-center gap-2 w-full bg-white text-blue-600 px-4 py-3 rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors"
+                  >
+                    <ArrowDownTrayIcon className="h-5 w-5" />
+                    Technical Specifications
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-xl p-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Available Languages
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {['English', 'French', 'Arabic', 'Spanish'].map((lang) => (
+                    <button
+                      key={lang}
+                      className="text-left px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-white rounded-lg transition-colors"
+                    >
+                      {lang}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
